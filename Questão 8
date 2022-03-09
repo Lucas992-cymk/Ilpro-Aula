@@ -1,0 +1,15 @@
+#include <stdio.h>
+#include <locale.h>
+
+int fatorial(int n) {
+    int res = 1;
+    while (n > 1) res *= n--;
+    return res;
+}
+int main(void) {
+    setlocale (LC_ALL, "Portuguese_Brazil");
+    int n;
+    printf("Digite o número a ser fatorado:\n");
+    scanf("%d", &n);
+    printf("O fatorial do número escolhido é: %d", fatorial(n));
+}
