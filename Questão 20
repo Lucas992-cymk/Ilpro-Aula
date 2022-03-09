@@ -1,0 +1,36 @@
+#include <stdio.h>
+#include <locale.h>
+
+
+int main(){
+  setlocale (LC_ALL, "Portuguese_Brazil");
+  int num_filhos, num_salarios, num_pessoas, pessoas_salarios_ate_380;
+  float media_salario, media_filhos, salario, maior_salario, porcentagem_salarios_ate_380;
+
+  num_filhos = 0, num_salarios = 0, num_pessoas = 0, pessoas_salarios_ate_380 = 0;
+  maior_salario = 0.0, media_salario = 0.0,  media_filhos = 0.0;
+
+  for(;;){
+    printf("Digite o número de filhos e o salário(Digite -1 para número de filhos quando desejar terminar): \n");
+    scanf("%d", &num_filhos);
+    if(num_filhos == -1)
+      break;
+    scanf("%f", &salario);
+    num_pessoas++;
+    if (salario > maior_salario) maior_salario = salario;
+    if (salario <= 380.0) pessoas_salarios_ate_380++;
+    media_salario += salario;
+    media_filhos += num_filhos;
+    
+  }
+  if (num_pessoas)  media_salario = media_salario / num_pessoas;
+  if (num_pessoas)  media_filhos = media_filhos / num_pessoas;
+  if (num_pessoas) porcentagem_salarios_ate_380 = (pessoas_salarios_ate_380 / (float)num_pessoas) * 380.0;
+
+  printf("A média do salário da população é: %.2f\n", media_salario);
+  printf("A média do número de filhos é: %.2f\n", media_filhos);
+  printf("O maior salário é: %.2f\n", maior_salario);
+  printf("O percentual de pessoas com salario até 380 reais é: %.2f%%\n", porcentagem_salarios_ate_380);
+
+  return 0;
+} 
