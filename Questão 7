@@ -1,0 +1,42 @@
+#include <stdio.h> 
+#include <conio.h>
+
+float calc_media() 
+{ 
+ float soma, numero, media, i; 
+  
+ soma = 0; 
+ i = 0; 
+ numero = 1; 
+  
+ while(numero != 0) 
+ { 
+ printf("\nDigite um numero positivo"); 
+ scanf("%f", &numero); 
+  
+ while(numero < 0) 
+ { 
+ printf("\nNumero invalido!"); 
+ printf("\nDigite um numero positivo novamente"); 
+ scanf("%f", &numero); 
+ } 
+  
+ soma += numero; 
+  
+ i++; 
+ } 
+  
+ media = soma/(i-1); 
+  
+ return media; 
+} 
+main() 
+{ 
+ float vmedio; 
+  
+ vmedio = calc_media(); 
+  
+ printf("O valor medio digitado foi %f",vmedio);
+
+getche(); 
+} 
